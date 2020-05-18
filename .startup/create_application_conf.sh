@@ -9,7 +9,7 @@ DL_SUFFIX=Linux-64bit
 INNER_SUFFIX=linux_amd64
 HUGO_VERSION=0.27
 
-if [[ $HOSTNAME == "node"* ]] ; then
+if [[ $HOSTNAME == "ds201-node1"* ]] ; then
     #rightscale
     IP=$(grep $(hostname)_ext /etc/hosts | awk '{print $1}')
 fi
