@@ -11,7 +11,7 @@ HUGO_VERSION=0.27
 
 if [[ $HOSTNAME == "ds201-node1"* ]] ; then
     #rightscale
-    IP=$(grep $(hostname)_ext /etc/hosts | awk '{print $1}')
+    IP=localhost
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
