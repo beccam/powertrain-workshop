@@ -5,9 +5,9 @@ set -x
 IP=$(ifconfig | awk '/inet/ { print $2 }' | egrep -v '^fe|^127|^192|^172|::' | head -1)
 IP=${IP#addr:}
 
-if [[ $HOSTNAME == "node"* ]] ; then
+if [[ $HOSTNAME == "ds201-node1"* ]] ; then
     #rightscale
-    IP=$(grep $(hostname)_ext /etc/hosts | awk '{print $1}')
+    IP=localhost
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
