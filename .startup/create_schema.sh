@@ -30,11 +30,11 @@ cqlsh $IP -f resources/cql/create_schema.cql
 
 echo "Creating Solr Cores"
 dsetool -h $IP unload_core vehicle_tracking_app.current_location
-dsetool -h $IP create_core vehicle_tracking_app.current_location generateResources=true reindex=true schema=resources/solr/geo.xml
+dsetool -h $IP create_core vehicle_tracking_app.current_location reindex=true solrconfig=resources/solr/solrconfig.xml schema=resources/solr/geo.xml
 dsetool -h $IP unload_core vehicle_tracking_app.vehicle_stats
-dsetool -h $IP create_core vehicle_tracking_app.vehicle_stats generateResources=true reindex=true schema=resources/solr/geo_vehicle.xml
+dsetool -h $IP create_core vehicle_tracking_app.vehicle_stats reindex=true solrconfig=resources/solr/solrconfig.xml schema=resources/solr/geo_vehicle.xml
 dsetool -h $IP unload_core vehicle_tracking_app.vehicle_events
-dsetool -h $IP create_core vehicle_tracking_app.vehicle_events generateResources=true reindex=true schema=resources/solr/events.xml
+dsetool -h $IP create_core vehicle_tracking_app.vehicle_events reindex=true solrconfig=resources/solr/solrconfig.xml schema=resources/solr/events.xml
 
 echo "Creating DSE Graph schema"
 dse gremlin-console -e resources/graph/load_schema.groovy
