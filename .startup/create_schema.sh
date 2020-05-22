@@ -19,8 +19,8 @@ cd /tmp
 
 echo "Cloning Powertrain repos"
 rm -rf /tmp/Powertrain*
-git clone https://github.com/datastax-demos/PowertrainStreaming.git 
-git clone https://github.com/datastax-demos/Powertrain2.git
+git clone https://github.com/beccam/PowertrainStreaming.git 
+git clone https://github.com/beccam/Powertrain2.git
 
 cd Powertrain2
 
