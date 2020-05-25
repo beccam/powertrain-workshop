@@ -24,8 +24,6 @@ sedi 's/spark.dse_host.*/spark.dse_host    '${IP}'/' /tmp/PowertrainStreaming/co
 cd /tmp/PowertrainStreaming
 
 if [[ $HOSTNAME == "ds201-node1"* ]]  ; then
-su ds_user <<'EOF'
-sudo chown -R ds_user /tmp/PowertrainStreaming
 cd /tmp/PowertrainStreaming
 sbt package
 EOF
