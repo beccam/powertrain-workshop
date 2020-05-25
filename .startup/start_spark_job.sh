@@ -26,7 +26,6 @@ cd /tmp/PowertrainStreaming
 if [[ $HOSTNAME == "ds201-node1"* ]]  ; then
 cd /tmp/PowertrainStreaming
 sbt package
-EOF
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
