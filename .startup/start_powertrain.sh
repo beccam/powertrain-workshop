@@ -12,7 +12,7 @@ IP=${IP#addr:}
 
 if [[ $HOSTNAME == "ds201-node1"* ]]  ; then
     #rightscale
-    IP=$(grep $(hostname)_ext /etc/hosts | awk '{print $1}')
+    IP=localhost
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -29,12 +29,9 @@ cd /tmp/Powertrain2/
 sedi 's|this.ws = new WebSocket.*|this.ws = new WebSocket("ws://" + "'${IP}':9000" + "/vehicleStream");|' public/game/bkcore/hexgl/VehicleStream.js
 
 if [[ $HOSTNAME == "ds201-node1"* ]]  ; then
-su ds_user <<'EOF'
-sudo chown -R ds_user /tmp/Powertrain2
 cd /tmp/Powertrain2
 sbt playUpdateSecret
 sbt dist
-EOF
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
